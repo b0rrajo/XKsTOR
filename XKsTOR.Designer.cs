@@ -33,14 +33,13 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devolucionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,9 +80,14 @@
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.devolucionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consolidadoscobradosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vistaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -109,13 +113,11 @@
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.openToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.toolStripSeparator3,
             this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
             this.toolStripSeparator4,
             this.printToolStripMenuItem,
-            this.printPreviewToolStripMenuItem,
-            this.printSetupToolStripMenuItem,
             this.toolStripSeparator5,
             this.exitToolStripMenuItem});
             this.fileMenu.Name = "fileMenu";
@@ -129,9 +131,24 @@
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
+            // prestamosToolStripMenuItem
+            // 
+            resources.ApplyResources(this.prestamosToolStripMenuItem, "prestamosToolStripMenuItem");
+            this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
+            this.prestamosToolStripMenuItem.Click += new System.EventHandler(this.prestamosToolStripMenuItem_Click);
+            // 
+            // devolucionesToolStripMenuItem
+            // 
+            resources.ApplyResources(this.devolucionesToolStripMenuItem, "devolucionesToolStripMenuItem");
+            this.devolucionesToolStripMenuItem.Name = "devolucionesToolStripMenuItem";
+            // 
             // openToolStripMenuItem
             // 
             resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
+            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoToolStripMenuItem,
+            this.pendientesToolStripMenuItem,
+            this.consolidadoscobradosToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
             // 
@@ -144,12 +161,7 @@
             // 
             resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            resources.ApplyResources(this.saveAsToolStripMenuItem, "saveAsToolStripMenuItem");
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -159,17 +171,10 @@
             // printToolStripMenuItem
             // 
             resources.ApplyResources(this.printToolStripMenuItem, "printToolStripMenuItem");
+            this.printToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listaDeToolStripMenuItem,
+            this.vistaDeToolStripMenuItem});
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            // 
-            // printPreviewToolStripMenuItem
-            // 
-            resources.ApplyResources(this.printPreviewToolStripMenuItem, "printPreviewToolStripMenuItem");
-            this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            // 
-            // printSetupToolStripMenuItem
-            // 
-            resources.ApplyResources(this.printSetupToolStripMenuItem, "printSetupToolStripMenuItem");
-            this.printSetupToolStripMenuItem.Name = "printSetupToolStripMenuItem";
             // 
             // toolStripSeparator5
             // 
@@ -429,7 +434,8 @@
             // 
             resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
+            this.toolStripStatusLabel,
+            this.toolStripProgressBar1});
             this.statusStrip.Name = "statusStrip";
             this.toolTip.SetToolTip(this.statusStrip, resources.GetString("statusStrip.ToolTip"));
             // 
@@ -438,20 +444,45 @@
             resources.ApplyResources(this.toolStripStatusLabel, "toolStripStatusLabel");
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             // 
+            // toolStripProgressBar1
+            // 
+            resources.ApplyResources(this.toolStripProgressBar1, "toolStripProgressBar1");
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Click += new System.EventHandler(this.toolStripProgressBar1_Click);
+            // 
             // toolTip
             // 
             this.toolTip.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip_Popup);
             // 
-            // prestamosToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            resources.ApplyResources(this.prestamosToolStripMenuItem, "prestamosToolStripMenuItem");
-            this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
-            this.prestamosToolStripMenuItem.Click += new System.EventHandler(this.prestamosToolStripMenuItem_Click);
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             // 
-            // devolucionesToolStripMenuItem
+            // nuevoToolStripMenuItem
             // 
-            resources.ApplyResources(this.devolucionesToolStripMenuItem, "devolucionesToolStripMenuItem");
-            this.devolucionesToolStripMenuItem.Name = "devolucionesToolStripMenuItem";
+            resources.ApplyResources(this.nuevoToolStripMenuItem, "nuevoToolStripMenuItem");
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            // 
+            // pendientesToolStripMenuItem
+            // 
+            resources.ApplyResources(this.pendientesToolStripMenuItem, "pendientesToolStripMenuItem");
+            this.pendientesToolStripMenuItem.Name = "pendientesToolStripMenuItem";
+            // 
+            // consolidadoscobradosToolStripMenuItem
+            // 
+            resources.ApplyResources(this.consolidadoscobradosToolStripMenuItem, "consolidadoscobradosToolStripMenuItem");
+            this.consolidadoscobradosToolStripMenuItem.Name = "consolidadoscobradosToolStripMenuItem";
+            // 
+            // listaDeToolStripMenuItem
+            // 
+            resources.ApplyResources(this.listaDeToolStripMenuItem, "listaDeToolStripMenuItem");
+            this.listaDeToolStripMenuItem.Name = "listaDeToolStripMenuItem";
+            // 
+            // vistaDeToolStripMenuItem
+            // 
+            resources.ApplyResources(this.vistaDeToolStripMenuItem, "vistaDeToolStripMenuItem");
+            this.vistaDeToolStripMenuItem.Name = "vistaDeToolStripMenuItem";
             // 
             // XKsTOR
             // 
@@ -490,7 +521,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripMenuItem printSetupToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
@@ -500,9 +530,7 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editMenu;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
@@ -535,6 +563,13 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem prestamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devolucionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pendientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consolidadoscobradosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vistaDeToolStripMenuItem;
     }
 }
 

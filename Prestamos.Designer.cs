@@ -35,6 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // splitter1
@@ -43,7 +45,7 @@
             this.splitter1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(190, 450);
+            this.splitter1.Size = new System.Drawing.Size(190, 806);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -70,11 +72,12 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Window;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 12);
+            this.label1.Location = new System.Drawing.Point(25, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 39);
+            this.label1.Size = new System.Drawing.Size(137, 39);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Préstamos";
+            this.label1.Text = "VENTAS";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -99,20 +102,42 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(212, 64);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(312, 25);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(463, 41);
+            this.textBox1.Size = new System.Drawing.Size(93, 22);
             this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "Usuario";
+            this.textBox1.Text = "X-XXXUXXXA";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(221, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 18);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Nº de lector";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(411, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 28);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Prestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1808, 806);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -121,7 +146,8 @@
             this.Controls.Add(this.splitter1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Prestamos";
-            this.Text = "Prestamos";
+            this.Text = "Pantalla de venta";
+            this.Load += new System.EventHandler(this.Prestamos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +161,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }

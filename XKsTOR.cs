@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace XKsTOR
     public partial class XKsTOR : Form
     {
         private int childFormNumber = 0;
-
+        private ProgressBar progressBar;
         private void MDIParent1_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms.Count == 0)
@@ -24,7 +25,7 @@ namespace XKsTOR
         public XKsTOR()
         {
             InitializeComponent();
-            OpenChildForm(new login());
+            OpenChildForm(new access());
         }
         private void OpenChildForm(Form childForm)
         {
@@ -148,6 +149,16 @@ namespace XKsTOR
             Form childForm = new Prestamos();
             childForm.MdiParent = this;
             childForm.Show();
+        }
+
+        private void toolStripProgressBar1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
